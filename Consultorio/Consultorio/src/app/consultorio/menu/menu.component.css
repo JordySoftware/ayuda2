@@ -1,0 +1,9 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+ p {
+  color: rgb(143, 20, 220);
+  font-size: 42px;
+  padding: 2%;
+}

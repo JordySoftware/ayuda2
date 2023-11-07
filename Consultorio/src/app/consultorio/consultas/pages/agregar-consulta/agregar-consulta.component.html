@@ -1,0 +1,48 @@
+<mat-card> 
+    <div style="text-align:center;">
+        <mat-card-title [style.color]="'#00ff51'" >Nueva Consulta</mat-card-title>
+    </div>   
+    <br>
+    <form [formGroup]="consultaNueva">
+
+        <mat-form-field class="campos-field">
+            <input matInput placeholder="Nombre del medico" formControlName="nombre_medico">
+        </mat-form-field>
+
+        <mat-form-field class="campos-field">
+            <input matInput placeholder="Nombre del paciente" formControlName="nombre_paciente">
+        </mat-form-field>
+
+        <mat-form-field class="campos-field">
+            <input matInput placeholder="Fecha de la Consulta" formControlName="fecha_consulta">
+        </mat-form-field>
+
+        <mat-form-field class="campos-field">
+            <input matInput placeholder="Hora de la Consulta" formControlName="hora">
+        </mat-form-field>
+
+        <mat-form-field class="campos-field">
+            <input matInput placeholder="Diagnostico" formControlName="diagnostico">
+        </mat-form-field>
+
+        <mat-form-field class="campos-field">
+            <input matInput placeholder="Tratamiento" formControlName="tratamiento">
+        </mat-form-field>
+        
+        <mat-form-field class="campos-field">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="estado">
+                <mat-option value="Activo">Activo</mat-option>
+                <mat-option value="Inactivo">Inactivo</mat-option>
+              </mat-select>
+        </mat-form-field>
+        
+
+        <div class="button-section">
+            <button mat-raised-button [disabled] = "!consultaNueva.valid" (click)="onSubmit()">Aceptar</button>  
+            <button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button>
+        </div>
+              
+    </form>
+    
+</mat-card>

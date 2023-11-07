@@ -1,0 +1,70 @@
+<mat-toolbar [style.background-color]="'#9900ff'" [style.color]="'#ffffff'" class="mat-elevation-z8">
+    <button (click)="drawer.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Consultorio</span>
+    <span class="example-spacer"></span>
+  
+
+    <button mat-raised-button color="accent" (click)="cerrarSesion()">Cerrar Sesion</button>
+</mat-toolbar>
+<mat-drawer-container autosize>
+    <mat-drawer #drawer opened="false" mode="side" position="start">
+    <mat-nav-list>
+        <mat-list-item>
+            <button (click)="inicio()" mat-button> Pagina inicial</button>
+        </mat-list-item>
+        <mat-list-item>
+            <button (click)="usuarios()" mat-button> Usuarios</button>
+        </mat-list-item>
+        <mat-list-item>
+            <button (click)="pacientes()" mat-button> Pacientes</button>
+        </mat-list-item>
+        <mat-list-item>
+            <button (click)="perfiles()" mat-button> Perfiles</button>
+        </mat-list-item>
+        <mat-list-item>
+            <button (click)="consultas()" mat-button> Consultas</button>
+        </mat-list-item>
+
+    </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+
+        <div style="text-align: center;min-height: 600px;">
+
+            <div class="titulo">
+                <h1>Usuario</h1>
+            </div>
+            <div class="tabla">
+            
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            
+                <ng-container matColumnDef="nombre_usuario">
+                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                    <td mat-cell *matCellDef="let element"> {{element.nombre_usuario}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="id_perfil">
+                    <th mat-header-cell *matHeaderCellDef> Tipo de Perfil </th>
+                    <td mat-cell *matCellDef="let element"> {{element.id_perfil}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="estado">
+                    <th mat-header-cell *matHeaderCellDef> Estado </th>
+                    <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+                </ng-container>
+                
+            
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+            </table>
+            
+            </div>    
+            <div class="agreg">
+                <button mat-raised-button (click)="openDialogAgregar()" class="button-add"> Agregar +</button>
+            </div>
+            </div>
+    </mat-drawer-content>
+</mat-drawer-container>

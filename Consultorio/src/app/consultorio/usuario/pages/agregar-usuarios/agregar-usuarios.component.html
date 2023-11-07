@@ -1,0 +1,40 @@
+<mat-card> 
+    <div style="text-align:center;">
+        <mat-card-title [style.color]="'#00ff51'" >Nuevo Paciente</mat-card-title>
+    </div>   
+    <br>
+    <form [formGroup]="usuarioNuevo">
+
+        <mat-form-field class="campos-field">
+            <input matInput placeholder="Nombre del usuario" formControlName="nombre">
+        </mat-form-field>
+
+        <mat-form-field class="campos-field">
+            <input matInput placeholder="Contrasena" formControlName="contra">
+        </mat-form-field>
+
+        <mat-form-field class="campos-field">
+            <mat-label>Perfil</mat-label>
+            <mat-select formControlName="perfil">
+                <mat-option value="Medico"> Medico</mat-option>
+                <mat-option value="Administrador"> Administrador</mat-option>
+              </mat-select>
+        </mat-form-field>
+
+         <mat-form-field class="campos-field">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="estado">
+                <mat-option value="Activo">Activo</mat-option>
+                <mat-option value="Inactivo">Inactivo</mat-option>
+              </mat-select>
+        </mat-form-field>
+
+        <div class="button-section">
+            <button mat-raised-button [disabled] = "!usuarioNuevo.valid" (click)="onSubmit()">Aceptar</button>  
+            <button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button>
+        </div>
+              
+    </form>
+    
+</mat-card>
+

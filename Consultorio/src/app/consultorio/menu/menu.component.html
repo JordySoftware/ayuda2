@@ -1,0 +1,45 @@
+<mat-toolbar [style.background-color]="'#00ff51'" [style.color]="'#ffffff'" class="mat-elevation-z8">
+    <button (click)="drawer.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Consultorio</span>
+    <span class="example-spacer"></span>
+  
+
+    <button mat-raised-button color="accent" (click)="cerrarSesion()">Cerrar Sesion</button>
+</mat-toolbar>
+<mat-drawer-container autosize>
+    <mat-drawer #drawer opened="true" mode="side" position="start">
+    <mat-nav-list>
+        <mat-list-item>
+            <button (click)="inicio()" mat-button> Pagina inicial</button>
+        </mat-list-item>
+        <mat-list-item>
+            <button (click)="usuarios()" mat-button> Usuarios</button>
+        </mat-list-item>
+        <mat-list-item>
+            <button (click)="pacientes()" mat-button> Pacientes</button>
+        </mat-list-item>
+        <mat-list-item>
+            <button (click)="perfiles()" mat-button> Perfiles</button>
+        </mat-list-item>
+        <mat-list-item>
+            <button (click)="consultas()" mat-button> Consultas</button>
+        </mat-list-item>
+    </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+
+        <div style="text-align: center;min-height: 600px;">
+
+        
+
+            <p>BIENVENIDOS AL CONSULTORIO</p>
+            <p>AL</p>
+            <p>CONSULTORIO</p>
+
+      
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
